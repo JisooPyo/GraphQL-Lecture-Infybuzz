@@ -6,10 +6,20 @@ type Query {
     firstQuery: String
     secondQuery: String
 #    fullName(firstName: String, lastName: String): String
-    fullName(sampleRequest : SampleRequest): String
+    fullName(sampleRequest: SampleRequest): String
+    student(id: ID): StudentResponse
 }
 
 input SampleRequest {
     firstName: String!  # !: null is not allowed, empty value is allowed
     lastName: String
+}
+
+type StudentResponse {
+    id: ID
+    firstName: String
+    lastName: String
+    email: String
+    street: String
+    city: String
 }
