@@ -1,7 +1,9 @@
-# method name : return type
-# method name(inputName: inputType) : return type
 # inputName의 경우 Resolver의 인자와 이름을 같게 하면 Resolver에서는 @Argument만 작성
 # 인자와 이름을 다르게 하는 경우 ex. "input" => @Argument("input") 으로 작성한다.
+# Scalar type : Int, Float, String, Boolean, ID
+
+# method name : return type
+# method name(inputName: inputType) : return type
 type Query {
     firstQuery: String
     secondQuery: String
@@ -22,4 +24,11 @@ type StudentResponse {
     email: String
     street: String
     city: String
+    learningSubjects: [SubjectResponse]
+}
+
+type SubjectResponse {
+    id: ID
+    subjectName: String
+    marksObtained: Float
 }

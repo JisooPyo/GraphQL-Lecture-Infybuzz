@@ -36,7 +36,7 @@ public class Query {
     }
 
     @QueryMapping
-    public StudentResponse student(long id) {
+    public StudentResponse student(@Argument long id) {
         return new StudentResponse(studentService.getStudentById(id));
     }
 }
