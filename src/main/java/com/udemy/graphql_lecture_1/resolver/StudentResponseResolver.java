@@ -2,12 +2,16 @@ package com.udemy.graphql_lecture_1.resolver;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
+import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.Arguments;
 import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.stereotype.Controller;
 
 import com.udemy.graphql_lecture_1.entity.Student;
 import com.udemy.graphql_lecture_1.entity.Subject;
+import com.udemy.graphql_lecture_1.enums.SubjectNameFilter;
 import com.udemy.graphql_lecture_1.response.StudentResponse;
 import com.udemy.graphql_lecture_1.response.SubjectResponse;
 
@@ -22,15 +26,27 @@ import com.udemy.graphql_lecture_1.response.SubjectResponse;
 public class StudentResponseResolver {
 
     @SchemaMapping(typeName = "StudentResponse", field = "learningSubjects")
-    public List<SubjectResponse> getLearningSubjects(StudentResponse studentResponse) {
+    public List<SubjectResponse> getLearningSubjects(
+        StudentResponse studentResponse,
+        @Argument List<SubjectNameFilter> subjectNameFilters
+    ) {
         // System.out.println("getLearningSubjects method is called");
+        List<Subject> studentSubjects = studentResponse.getStudent().getLearningSubjects();
         Student student = studentResponse.getStudent();
         List<SubjectResponse> learningSubjects = new ArrayList<>();
-        if (student.getLearningSubjects() == null) {
-            return learningSubjects;
+
+        if (subjectNameFilters.contains(SubjectNameFilter.All)) {
+            return studentSubjects.stream().map(SubjectResponse::new)
+                .collect(Collectors.toList());
         }
-        for (Subject subject : student.getLearningSubjects()) {
-            learningSubjects.add(new SubjectResponse(subject));
+
+        for (Subject subject : studentSubjects) {
+            for (SubjectNameFilter filter : subjectNameFilters) {
+                if (filter.name().equalsIgnoreCase(subject.getSubjectName())) {
+                    learningSubjects.add(new SubjectResponse(subject));
+                    break;
+                }
+            }
         }
         return learningSubjects;
     }

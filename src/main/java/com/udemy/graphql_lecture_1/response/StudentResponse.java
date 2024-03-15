@@ -1,5 +1,6 @@
 package com.udemy.graphql_lecture_1.response;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.udemy.graphql_lecture_1.entity.Student;
@@ -14,7 +15,7 @@ public class StudentResponse {
     private String email;
     private String street;
     private String city;
-    private List<SubjectResponse> learningSubjects;
+    private List<SubjectResponse> learningSubjects = new ArrayList<>();
 
     // this is for internal use. DO NOT PUT IN SCHEMA.
     private Student student;
