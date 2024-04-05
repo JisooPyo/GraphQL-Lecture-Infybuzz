@@ -6,9 +6,13 @@ Udemy - Infybuzz Learning의 <*GraphQL API with Java Spring Boot & Spring Framew
 
 This code is for the <*GraphQL API with Java Spring Boot & Spring Framework*> course by Infybuzz Learning on Udemy. This lecture is conducted using Spring Boot 2. However, I am studying with Spring Boot 3.
 
+<br>
+
 ## 강의 링크
 
 [강의 링크(Link to the course)](https://www.udemy.com/course/graphql-with-java-spring-boot-query-mutation-schema-resolver-edge-jpa/)
+
+<br>
 
 ## Tech Stack
 
@@ -17,3 +21,9 @@ This code is for the <*GraphQL API with Java Spring Boot & Spring Framework*> co
 <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white">&nbsp;
 <img src="https://img.shields.io/badge/GraphQL-E10098?style=flat-square&logo=graphql&logoColor=white">&nbsp;
 <img src="https://img.shields.io/badge/Altair-3488B9?style=flat-square&logo=&logoColor=white">&nbsp;
+
+<br>
+
+## 수료증
+
+<img src="https://github.com/JisooPyo/GraphQL-Lecture-Infybuzz/assets/130378232/90cb073b-91e7-4c06-a33e-18cf732cebe3" width="500px">
